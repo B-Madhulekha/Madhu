@@ -1,0 +1,56 @@
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      msg: 'lamNEO',
+    };
+    console.log('Constructor!');
+  }
+
+  componentWillMount() {
+    console.log('Component Will MOUNT!');
+  }
+
+  componentDidMount() {
+    console.log('Component Did MOUNT!');
+  }
+
+  componentWillReceiveProps(newProps) {
+    console.log('Component Will Receive Props!', newProps);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Should Component Update!', nextProps, nextState);
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Component Will UPDATE!', nextProps, nextState);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('Component Did UPDATE!', prevProps, prevState);
+  }
+
+  componentWillUnmount() {
+    console.log('Component Will UNMOUNT!');
+  }
+
+  handleButtonClick = () => {
+    this.setState({ msg: 'Welcome to React' });
+  };
+
+  render() {
+    console.log('Render!');
+    return (
+      <div>
+        <h1>{this.state.msg}</h1>
+        <button onClick={this.handleButtonClick}>Change Message</button>
+      </div>
+    );
+  }
+}
+
+export default App;
