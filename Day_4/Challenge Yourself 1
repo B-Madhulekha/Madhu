@@ -1,0 +1,45 @@
+import React from 'react';
+import { List, ListItem, ListItemText, Divider, Typography } from '@mui/material';
+
+const books = [
+  {
+    title: 'To Kill a Mockingbird',
+    summary: 'A novel by Harper Lee, set in the American South during the 1930s, dealing with the issues of racial injustice and moral growth.'
+  },
+  {
+    title: '1984',
+    summary: 'A dystopian novel by George Orwell, portraying a totalitarian society where critical thought is suppressed.'
+  },
+  {
+    title: 'The Bible',
+    summary: 'A sacred text in Christianity, consisting of the Old Testament and the New Testament, containing religious teachings and narratives.'
+  },
+  {
+    title: 'The Qur\'an',
+    summary: 'The holy book of Islam, believed by Muslims to be a revelation from God, consisting of the teachings of the Prophet Muhammad.'
+  },
+  {
+    title: 'One Hundred Years of Solitude',
+    summary: 'A novel by Gabriel García Márquez, telling the multi-generational story of the Buendía family in the fictional town of Macondo.'
+  },
+];
+
+const BookList = () => {
+  return (
+    <List>
+      {books.map((book, index) => (
+        <div key={index}>
+          <ListItem>
+            <ListItemText>
+              <Typography variant="h6">{book.title}</Typography>
+              <Typography variant="body2">{book.summary}</Typography>
+            </ListItemText>
+          </ListItem>
+          {index < books.length - 1 && <Divider />}
+        </div>
+      ))}
+    </List>
+  );
+};
+
+export default BookList;
